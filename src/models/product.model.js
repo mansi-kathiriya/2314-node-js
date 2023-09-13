@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const config = require("../config/config")
 
 const productSchema = new mongoose.Schema(
     {
@@ -18,14 +17,6 @@ const productSchema = new mongoose.Schema(
         category: {
             type: mongoose.Types.ObjectId,
             ref: "category"
-        },
-        subcategory: {
-            type: mongoose.Types.ObjectId,
-            ref: "subcategory",
-        },
-        subchildcategory: {
-            type: mongoose.Types.ObjectId,
-            ref: "subchildcategory",
         },
         is_active: {
             type: Boolean,
