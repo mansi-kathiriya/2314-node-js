@@ -5,12 +5,6 @@ const createProduct = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        if(req.file){
-            reqBody.product_image = req.file.filename;
-        }else{
-            throw new Error("Banner image is required!");
-        }
-
         const productExists = await productService.getProductByName(reqBody.product_name);
         if (productExists) {
             throw new Error(`please add other Product this ${productExists.product_name} Product already created.`);

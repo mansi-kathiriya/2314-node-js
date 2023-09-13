@@ -10,9 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-// Get image
-app.use(express.static(`./public`));
-
 app.use("/v1",routes)
 
 // Database connection
