@@ -4,12 +4,8 @@ const Joi = require("joi");
 const createOrder = {
     body: Joi.object().keys({
         user: Joi.string().required(),
-        product: Joi.string().required(),
-        totalprice: Joi.number().integer().required(),
+        order_date: Joi.date().required(),
         status: Joi.string().required().trim(),
-        category: Joi.string().required(),
-        subcategory: Joi.string().required(),
-        subchildcategory: Joi.string().required(),
     }),
 };
 

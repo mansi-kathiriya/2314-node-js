@@ -6,28 +6,12 @@ const orderSchema = new mongoose.Schema(
             type: mongoose.Types.ObjectId,
             ref: "users"
         },
-        product: {
-            type: mongoose.Types.ObjectId,
-            ref: "product"
-        },
-        totalprice: {
-            type: Number,
+        order_date: {
+            type: Date.now(),
         },
         status: {
             type: String,
             trim: true,
-        },
-        category: {
-            type: mongoose.Types.ObjectId,
-            ref: "category"
-        },
-        subcategory: {
-            type: mongoose.Types.ObjectId,
-            ref: "subcategory",
-        },
-        subchildcategory: {
-            type: mongoose.Types.ObjectId,
-            ref: "subchildcategory",
         },
         is_active: {
             type: Boolean,
