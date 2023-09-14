@@ -5,3 +5,4 @@ module.exports.Cart = require("./cart.model");
 module.exports.Order = require("./order.model");
 module.exports.Orderitem = require("./orderitem.model");
 module.exports.Seller = require("./seller.model");
+module.exports.Payment = require("./payment.model");

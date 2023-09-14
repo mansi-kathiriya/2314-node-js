@@ -5,3 +5,4 @@ module.exports.cartController = require("./cart.cantroller");
 module.exports.orderController = require("./order.controller");
 module.exports.orderitemController = require("./orderitem.controller");
 module.exports.sellerController = require("./seller.controller");
+module.exports.paymentController = require("./payment.controller");

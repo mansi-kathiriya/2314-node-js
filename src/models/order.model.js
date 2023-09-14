@@ -7,7 +7,8 @@ const orderSchema = new mongoose.Schema(
             ref: "users"
         },
         order_date: {
-            type: Date.now(),
+            type: Date,
+            default:Date.now(),
         },
         status: {
             type: String,

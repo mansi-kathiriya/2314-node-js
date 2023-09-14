@@ -1,26 +1,22 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema(
+const paymentSchema = new mongoose.Schema(
     {
-        category: {
+        user: {
             type: mongoose.Types.ObjectId,
-            ref: "category"
+            ref: "users"
         },
-        product_name: {
+        Payment_method: {
             type: String,
             trim: true,
         },
-        product_desc: {
-            type: String,
-            trim: true,
-        },
-        price: {
+        amount: {
             type: Number,
             trim: true,
         },
-        stock_quantity: {
-            type: Number,
-            trim: true,
+        transaction_date: {
+            type: Date,
+            default:Date.now(),
         },
         is_active: {
             type: Boolean,
@@ -33,6 +29,6 @@ const productSchema = new mongoose.Schema(
     }
 );
 
-const Product = mongoose.model("product",productSchema);
+const Payment = mongoose.model("payment",paymentSchema);
 
-module.exports = Product;
+module.exports = Payment;
