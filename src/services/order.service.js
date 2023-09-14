@@ -9,8 +9,7 @@ const createOrder = async (reqBody) => {
 
 const getOrderList = async (filter, options) => {
   return Order.find()
-  .populate("category")
-  .populate("subchildcategory")
+  .populate("user")
 };
 
 const getOrderById = async(orderId) => {

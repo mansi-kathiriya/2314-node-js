@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const shopSchema = new mongoose.Schema(
+const sellerSchema = new mongoose.Schema(
     {
         user: {
             type: mongoose.Types.ObjectId,
@@ -29,6 +29,6 @@ const shopSchema = new mongoose.Schema(
     }
 );
 
-const Shop = mongoose.model("shop",shopSchema);
+const Seller = mongoose.model("seller",sellerSchema);
 
-module.exports = Shop;
+module.exports = Seller;

@@ -9,6 +9,7 @@ const createSeller = async (reqBody) => {
 
 const getSellerList = async (filter, options) => {
   return Seller.find()
+  .populate("user")
 };
 
 const getSellerById = async(sellerId) => {
