@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
     {
+        category: {
+            type: mongoose.Types.ObjectId,
+            ref: "category"
+        },
         product_name: {
             type: String,
             trim: true,
@@ -14,9 +18,9 @@ const productSchema = new mongoose.Schema(
             type: Number,
             trim: true,
         },
-        category: {
-            type: mongoose.Types.ObjectId,
-            ref: "category"
+        stock_quantity: {
+            type: Number,
+            trim: true,
         },
         is_active: {
             type: Boolean,
