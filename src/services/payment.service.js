@@ -9,6 +9,8 @@ const createPayment = async (reqBody) => {
 
 const getPaymentList = async (filter, options) => {
   return Payment.find()
+  .populate("user")
+  .populate("order")
 };
 
 const getPaymentById = async(paymentId) => {

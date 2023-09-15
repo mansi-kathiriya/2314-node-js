@@ -9,8 +9,8 @@ const createCart = async (reqBody) => {
 
 const getCartList = async (filter, options) => {
   return Cart.find()
-  .populate("category")
-  .populate("subchildcategory")
+  .populate("user")
+  .populate("product")
 };
 
 const getCartById = async(cartId) => {
