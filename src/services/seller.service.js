@@ -8,7 +8,7 @@ const createSeller = async (reqBody) => {
 };
 
 const getSellerList = async (filter, options) => {
-  return Seller.find()
+  return Seller.find({$or : [{ is_active: true }]})
   .populate("user")
 };
 

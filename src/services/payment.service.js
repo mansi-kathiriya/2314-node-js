@@ -8,7 +8,7 @@ const createPayment = async (reqBody) => {
 };
 
 const getPaymentList = async (filter, options) => {
-  return Payment.find()
+  return Payment.find({$or : [{ Payment_method: "online"}]})
   .populate("user")
   .populate("order")
 };

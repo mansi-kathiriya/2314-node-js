@@ -8,7 +8,7 @@ const createCart = async (reqBody) => {
 };
 
 const getCartList = async (filter, options) => {
-  return Cart.find()
+  return Cart.find({$or : [{ quantity:10, is_active: true }]})
   .populate("user")
   .populate("product")
 };

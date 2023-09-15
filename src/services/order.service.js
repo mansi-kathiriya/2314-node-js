@@ -8,7 +8,7 @@ const createOrder = async (reqBody) => {
 };
 
 const getOrderList = async (filter, options) => {
-  return Order.find()
+  return Order.find({$or : [{ is_active: true }]})
   .populate("user")
 };
 
