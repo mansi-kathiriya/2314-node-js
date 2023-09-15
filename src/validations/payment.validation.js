@@ -4,6 +4,7 @@ const Joi = require("joi");
 const createProduct = {
     body: Joi.object().keys({
         user: Joi.string().required(),
+        order: Joi.string().required(),
         Payment_method: Joi.string().required().trim(),
         amount: Joi.number().integer().required(),
         transaction_date: Joi.date().required(),
