@@ -1,12 +1,16 @@
 const mongoose = require("mongoose");
 
-const sportcategorySchema = new mongoose.Schema(
+const founderSchema = new mongoose.Schema(
     {
-        name: {
+        full_name: {
             type: String,
             trim: true,
         },
-        description: {
+        nationality: {
+            type: String,
+            trim: true,
+        },
+        contact_information: {
             type: String,
             trim: true,
         },
@@ -21,6 +25,6 @@ const sportcategorySchema = new mongoose.Schema(
     }
 );
 
-const Sportcategory = mongoose.model("sportcategory", sportcategorySchema);
+const Founder = mongoose.model("founder", founderSchema);
 
-module.exports = Sportcategory;
+module.exports = Founder;

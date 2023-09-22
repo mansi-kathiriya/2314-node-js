@@ -1,3 +1,11 @@
 module.exports.User = require("./user.model");
 module.exports.Sportcategory = require("./sportcategory.model");
 module.exports.Token = require("./token.model");
+module.exports.Founder = require("./founder.model");
+module.exports.Team = require("./team.model");
+module.exports.Player = require("./player.model");
+module.exports.Game = require("./game.model");
+module.exports.Result = require("./result.model");
+module.exports.News = require("./news.model");
+module.exports.Tournament = require("./tournament.model");
+module.exports.Sportgallery = require("./sportgallery.model");

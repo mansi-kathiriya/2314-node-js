@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
 
-const sportcategorySchema = new mongoose.Schema(
+const newsSchema = new mongoose.Schema(
     {
-        name: {
+        title: {
             type: String,
             trim: true,
         },
-        description: {
+        content: {
             type: String,
             trim: true,
+        },
+        publication_date: {
+            type: Date,
+            default: Date.now(),
         },
         is_active: {
             type: Boolean,
@@ -21,6 +25,6 @@ const sportcategorySchema = new mongoose.Schema(
     }
 );
 
-const Sportcategory = mongoose.model("sportcategory", sportcategorySchema);
+const News = mongoose.model("news", newsSchema);
 
-module.exports = Sportcategory;
+module.exports = News;

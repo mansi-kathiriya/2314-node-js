@@ -1,12 +1,16 @@
 const mongoose = require("mongoose");
 
-const sportcategorySchema = new mongoose.Schema(
+const gameSchema = new mongoose.Schema(
     {
-        name: {
+        game_name: {
             type: String,
             trim: true,
         },
-        description: {
+        date_time: {
+            type: Date,
+            default: Date.now(),
+        },
+        location: {
             type: String,
             trim: true,
         },
@@ -21,6 +25,6 @@ const sportcategorySchema = new mongoose.Schema(
     }
 );
 
-const Sportcategory = mongoose.model("sportcategory", sportcategorySchema);
+const Game = mongoose.model("game", gameSchema);
 
-module.exports = Sportcategory;
+module.exports = Game;
