@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-const categorySchema = new mongoose.Schema(
+const sportcategorySchema = new mongoose.Schema(
     {
-        category_name: {
+        name: {
             type: String,
             trim: true,
         },
-        category_desc: {
+        description: {
             type: String,
             trim: true,
         },
@@ -21,6 +21,6 @@ const categorySchema = new mongoose.Schema(
     }
 );
 
-const Category = mongoose.model("category", categorySchema);
+const Sportcategory = mongoose.model("category", sportcategorySchema);
 
-module.exports = Category;
+module.exports = Sportcategory;
