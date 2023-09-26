@@ -1,16 +1,16 @@
 const { sportcategoryService } = require("../services");
 
-// create Sportcategory
+// Create Sportcategory
 const createSportcategory = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const SportcategoryEx = await sportcategoryService.getSportcategoryByName(reqBody.name);
-        if (SportcategoryEx) {
-            throw new Error(`please add other Sportcategory this ${SportcategoryEx.name} Sportcategory already created.`);
+        const sportcategoryExists = await sportcategoryService.SportcategoryByName(reqBody.name);
+        if (sportcategoryExists) {
+            throw new Error("please add other Sportcategory this Sportcategory is already created.");
         }
 
-        const Sportcategory = await sportcategoryService.createSportcategory(reqBody);
+        const Sportcategory = await sportcategoryService.cresteSportcategory(reqBody);
 
         res.status(200).json({
             success: true,
@@ -22,28 +22,32 @@ const createSportcategory = async (req, res) => {
     }
 };
 
-//  Get user list
-const getSportcategoryList = async (req, res) => {
+// Get fonder List
+const getFonderList = async (req, res) => {
     try {
-        const getList = await sportcategoryService.getSportcategoryList();
+        const sportcategoryExists = await sportcategoryService.SportcategoryByName(reqBody.name);
+        if (!sportcategoryExists) {
+            throw new Error("Sportcategory not found");
+        }
+
+        const getlist = await sportcategoryService.getSportcategoryList(reqBody);
+
         res.status(200).json({
             success: true,
             message: "Get Sportcategory list successfully!",
-            data: getList,
+            data: getlist,
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message })
     }
 };
 
-// get Sportcategory details by id
-const getSportcategoryDetails = async (req, res) => {
+// Get fonder details by id
+const getFonderDetails = async (req, res) => {
     try {
-        const getDetails = await sportcategoryService.getSportcategoryById(
-            req.params.sportcategoryId
-        )
+        const getDetails = await sportcategoryService.getFonderById(req.params.sportcategoryId);
         if (!getDetails) {
-            throw new Error("Sportcategory not found!");
+            throw new Error("Sportcategory not found");
         }
 
         res.status(200).json({
@@ -54,56 +58,54 @@ const getSportcategoryDetails = async (req, res) => {
     } catch (error) {
         res.status(400).json({ success: false, message: error.message })
     }
-}
-
-// update Sportcategory
-
-const updateSportcategory = async (req, res) => {
-    try {
-        const sportcategoryId = req.params.SportcategoryId;
-
-        const cateExists = await sportcategoryService.getSportcategoryById(sportcategoryId);
-        if (!cateExists) {
-            throw new Error("Sportcategory not found!")
-        }
-
-        await sportcategoryService.updateDetails(sportcategoryId, req.body);
-
-        res.status(200).json({
-            success: true,
-            message: "Sportcategory details update successfully!",
-        });
-    } catch (error) {
-        res.status(400).json({ success: false, message: error.message })
-    }
 };
 
-// delete Sportcategory
-
-const deleteRecord = async (req, res) => {
+// update fonder
+const updateFonder = async (req, res) => {
     try {
         const sportcategoryId = req.params.sportcategoryId;
 
-        const cateExists = await sportcategoryService.getSportcategoryById(sportcategoryId);
-        if (!cateExists) {
-            throw new Error("Sportcategory not found!")
+        const sportcategoryExists = await sportcategoryService.getFonderById(sportcategoryId);
+        if (!sportcategoryExists) {
+            throw new Error("Sportcategory not found");
         }
 
-        await sportcategoryService.deleteSportcategory(sportcategoryId);
+        await sportcategoryService.updateFonder(sportcategoryId,req.body);
 
         res.status(200).json({
             success: true,
-            message: "Sportcategory delete successfully!",
+            message: "Sportcategory details Update successfully!",
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message })
     }
-}
+};
+
+// Delete fonder
+const deleteFonder = async (req, res) => {
+    try {
+        const sportcategoryId = req.params.sportcategoryId;
+
+        const sportcategoryExists = await sportcategoryService.getFonderById(sportcategoryId);
+        if (!sportcategoryExists) {
+            throw new Error("Sportcategory not found");
+        }
+
+        await sportcategoryService.deleteFonder(sportcategoryId);
+
+        res.status(200).json({
+            success: true,
+            message: "Sportcategory details delete successfully!",
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message })
+    }
+};
 
 module.exports = {
     createSportcategory,
-    getSportcategoryList,
-    getSportcategoryDetails,
-    updateSportcategory,
-    deleteRecord
-};
+    getFonderList,
+    getFonderDetails,
+    updateFonder,
+    deleteFonder,
+}
