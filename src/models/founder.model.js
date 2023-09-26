@@ -10,7 +10,7 @@ const founderSchema = new mongoose.Schema(
             type: String,
             trim: true,
         },
-        contact_information: {
+        contact_info: {
             type: String,
             trim: true,
         },

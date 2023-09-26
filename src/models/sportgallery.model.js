@@ -6,6 +6,10 @@ const sportgallerySchema = new mongoose.Schema(
             type: String,
             trim: true,
         },
+        sport_name: {
+            type: String,
+            trim: true,
+        },
         is_active: {
             type: Boolean,
             default: true,
@@ -13,7 +17,14 @@ const sportgallerySchema = new mongoose.Schema(
     },
     {
         timestamps: true,
-        versionkey: false
+        versionkey: false,
+        toJSON: {
+            transform: function (doc, data) {
+                if (data?.sport_img) {
+                    data.sport_img = `${config.base_url}sport_img/${data.sport_img}`;
+                }
+            },
+        },
     }
 );
 
