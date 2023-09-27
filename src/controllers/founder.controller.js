@@ -5,8 +5,8 @@ const createFounder = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const fonderExists = await founderService.founderByName(reqBody.name);
-        if (fonderExists) {
+        const founderExists = await founderService.FounderByName(reqBody.name);
+        if (founderExists) {
             throw new Error("please add other founder this founder is already created.");
         }
 
@@ -22,11 +22,11 @@ const createFounder = async (req, res) => {
     }
 };
 
-// Get fonder List
-const getFonderList = async (req, res) => {
+// Get Founder List
+const getFounderList = async (req, res) => {
     try {
-        const fonderExists = await founderService.founderByName(reqBody.name);
-        if (!fonderExists) {
+        const founderExists = await founderService.FounderByName(reqBody.name);
+        if (!founderExists) {
             throw new Error("Founder not found");
         }
 
@@ -42,10 +42,10 @@ const getFonderList = async (req, res) => {
     }
 };
 
-// Get fonder details by id
-const getFonderDetails = async (req, res) => {
+// Get Founder details by id
+const getFounderDetails = async (req, res) => {
     try {
-        const getDetails = await founderService.getFonderById(req.params.founderId);
+        const getDetails = await founderService.getFounderById(req.params.founderId);
         if (!getDetails) {
             throw new Error("Founder not found");
         }
@@ -60,17 +60,17 @@ const getFonderDetails = async (req, res) => {
     }
 };
 
-// update fonder
-const updateFonder = async (req, res) => {
+// update Founder
+const updateFounder = async (req, res) => {
     try {
         const founderId = req.params.founderId;
 
-        const fonderExists = await founderService.getFonderById(founderId);
-        if (!fonderExists) {
+        const founderExists = await founderService.getFounderById(founderId);
+        if (!founderExists) {
             throw new Error("Founder not found");
         }
 
-        await founderService.updateFonder(founderId,req.body);
+        await founderService.updateFounder(founderId,req.body);
 
         res.status(200).json({
             success: true,
@@ -81,17 +81,17 @@ const updateFonder = async (req, res) => {
     }
 };
 
-// Delete fonder
-const deleteFonder = async (req, res) => {
+// Delete Founder
+const deleteFounder = async (req, res) => {
     try {
         const founderId = req.params.founderId;
 
-        const fonderExists = await founderService.getFonderById(founderId);
-        if (!fonderExists) {
+        const founderExists = await founderService.getFounderById(founderId);
+        if (!founderExists) {
             throw new Error("Founder not found");
         }
 
-        await founderService.deleteFonder(founderId);
+        await founderService.deleteFounder(founderId);
 
         res.status(200).json({
             success: true,
@@ -104,8 +104,8 @@ const deleteFonder = async (req, res) => {
 
 module.exports = {
     createFounder,
-    getFonderList,
-    getFonderDetails,
-    updateFonder,
-    deleteFonder,
+    getFounderList,
+    getFounderDetails,
+    updateFounder,
+    deleteFounder,
 }
