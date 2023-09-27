@@ -10,7 +10,7 @@ const createSportcategory = async (req, res) => {
             throw new Error("please add other Sportcategory this Sportcategory is already created.");
         }
 
-        const Sportcategory = await sportcategoryService.cresteSportcategory(reqBody);
+        const Sportcategory = await sportcategoryService.createSportcategory(reqBody);
 
         res.status(200).json({
             success: true,

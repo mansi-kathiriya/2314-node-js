@@ -12,7 +12,7 @@ const getSportcategoryById = async(sportcategoryId) => {
   return Sportcategory.findById(sportcategoryId);
 }
 
-const updateDetails = async(sportcategoryId, updateBody) => {
+const updateSportcategory = async(sportcategoryId, updateBody) => {
   return Sportcategory.findByIdAndUpdate(sportcategoryId, { $set: updateBody });
 }
 
@@ -20,7 +20,7 @@ const deleteSportcategory = async (sportcategoryId) => {
   return Sportcategory.findByIdAndDelete(sportcategoryId);
 }
 
-const getSportcategoryByName = async (name) => {
+const SportcategoryByName = async (name) => {
   return Sportcategory.findOne({ name });
 };
 
@@ -28,7 +28,7 @@ module.exports = {
   createSportcategory,
   getSportcategoryList,
   getSportcategoryById,
-  updateDetails,
+  updateSportcategory,
   deleteSportcategory,
-  getSportcategoryByName
+  SportcategoryByName
 };
