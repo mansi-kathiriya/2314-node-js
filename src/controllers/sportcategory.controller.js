@@ -22,8 +22,8 @@ const createSportcategory = async (req, res) => {
     }
 };
 
-// Get fonder List
-const getFonderList = async (req, res) => {
+// Get Sportcategory List
+const getSportcategoryList = async (req, res) => {
     try {
         const sportcategoryExists = await sportcategoryService.SportcategoryByName(reqBody.name);
         if (!sportcategoryExists) {
@@ -42,10 +42,10 @@ const getFonderList = async (req, res) => {
     }
 };
 
-// Get fonder details by id
-const getFonderDetails = async (req, res) => {
+// Get Sportcategory details by id
+const getSportcategoryDetails = async (req, res) => {
     try {
-        const getDetails = await sportcategoryService.getFonderById(req.params.sportcategoryId);
+        const getDetails = await sportcategoryService.getSportcategoryById(req.params.sportcategoryId);
         if (!getDetails) {
             throw new Error("Sportcategory not found");
         }
@@ -60,17 +60,17 @@ const getFonderDetails = async (req, res) => {
     }
 };
 
-// update fonder
-const updateFonder = async (req, res) => {
+// update Sportcategory
+const updateSportcategory = async (req, res) => {
     try {
         const sportcategoryId = req.params.sportcategoryId;
 
-        const sportcategoryExists = await sportcategoryService.getFonderById(sportcategoryId);
+        const sportcategoryExists = await sportcategoryService.getSportcategoryById(sportcategoryId);
         if (!sportcategoryExists) {
             throw new Error("Sportcategory not found");
         }
 
-        await sportcategoryService.updateFonder(sportcategoryId,req.body);
+        await sportcategoryService.updateSportcategory(sportcategoryId,req.body);
 
         res.status(200).json({
             success: true,
@@ -81,17 +81,17 @@ const updateFonder = async (req, res) => {
     }
 };
 
-// Delete fonder
-const deleteFonder = async (req, res) => {
+// Delete Sportcategory
+const deleteSportcategory = async (req, res) => {
     try {
         const sportcategoryId = req.params.sportcategoryId;
 
-        const sportcategoryExists = await sportcategoryService.getFonderById(sportcategoryId);
+        const sportcategoryExists = await sportcategoryService.getSportcategoryById(sportcategoryId);
         if (!sportcategoryExists) {
             throw new Error("Sportcategory not found");
         }
 
-        await sportcategoryService.deleteFonder(sportcategoryId);
+        await sportcategoryService.deleteSportcategory(sportcategoryId);
 
         res.status(200).json({
             success: true,
@@ -104,8 +104,8 @@ const deleteFonder = async (req, res) => {
 
 module.exports = {
     createSportcategory,
-    getFonderList,
-    getFonderDetails,
-    updateFonder,
-    deleteFonder,
+    getSportcategoryList,
+    getSportcategoryDetails,
+    updateSportcategory,
+    deleteSportcategory,
 }
