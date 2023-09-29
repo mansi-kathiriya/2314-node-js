@@ -5,7 +5,7 @@ const createSportgallery = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const galleryExists = await sportgalleryService.SportgalleryByName(reqBody.name);
+        const galleryExists = await sportgalleryService.SportgalleryByName(reqBody);
         if (galleryExists) {
             throw new Error("please add other Sportgallery this Sportgallery is already created.");
         }
@@ -25,12 +25,12 @@ const createSportgallery = async (req, res) => {
 // Get Sportgallery List
 const getSportgalleryList = async (req, res) => {
     try {
-        const galleryExists = await sportgalleryService.SportgalleryByName(reqBody.name);
+        const galleryExists = await sportgalleryService.SportgalleryByName();
         if (!galleryExists) {
             throw new Error("Sportgallery not found");
         }
 
-        const getlist = await sportgalleryService.getSportgalleryList(reqBody);
+        const getlist = await sportgalleryService.getSportgalleryList();
 
         res.status(200).json({
             success: true,

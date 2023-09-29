@@ -1,3 +1,10 @@
 module.exports.userService = require("./user.service");
 module.exports.sportcategoryService = require("./sportcategory.service");
 module.exports.tokenService = require("./token.service");
+module.exports.founderService = require("./founder.service");
+module.exports.gameService = require("./game.service");
+module.exports.newsService = require("./news.service");
+module.exports.playerService = require("./player.service");
+module.exports.resultService = require("./result.service");
+module.exports.sportgalleryService = require("./sportgallery.service");
+module.exports.teamService = require("./team.service");

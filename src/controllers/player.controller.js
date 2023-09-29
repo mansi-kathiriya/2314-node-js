@@ -5,7 +5,7 @@ const createPlayer = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const playerExists = await playerService.PlayerByName(reqBody.name);
+        const playerExists = await playerService.PlayerByName(reqBody);
         if (playerExists) {
             throw new Error("please add other Player this Player is already created.");
         }
@@ -25,12 +25,12 @@ const createPlayer = async (req, res) => {
 // Get Player List
 const getPlayerList = async (req, res) => {
     try {
-        const playerExists = await playerService.PlayerByName(reqBody.name);
+        const playerExists = await playerService.PlayerByName();
         if (!playerExists) {
             throw new Error("Player not found");
         }
 
-        const getlist = await playerService.getPlayerList(reqBody);
+        const getlist = await playerService.getPlayerList();
 
         res.status(200).json({
             success: true,

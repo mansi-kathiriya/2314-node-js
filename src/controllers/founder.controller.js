@@ -5,7 +5,7 @@ const createFounder = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const founderExists = await founderService.FounderByName(reqBody.name);
+        const founderExists = await founderService.FounderByName(reqBody);
         if (founderExists) {
             throw new Error("please add other founder this founder is already created.");
         }
@@ -25,12 +25,12 @@ const createFounder = async (req, res) => {
 // Get Founder List
 const getFounderList = async (req, res) => {
     try {
-        const founderExists = await founderService.FounderByName(reqBody.name);
+        const founderExists = await founderService.FounderByName();
         if (!founderExists) {
             throw new Error("Founder not found");
         }
 
-        const getlist = await founderService.getFounderList(reqBody);
+        const getlist = await founderService.getFounderList();
 
         res.status(200).json({
             success: true,

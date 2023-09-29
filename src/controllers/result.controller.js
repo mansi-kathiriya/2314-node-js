@@ -5,12 +5,10 @@ const createResult = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const resultExists = await resultService.ResultByName(reqBody.name);
-        if (resultExists) {
-            throw new Error("please add other Result this Result is already created.");
-        }
-
         const Result = await resultService.cresteResult(reqBody);
+        if (!Result) {
+            throw new Error("Result not found");
+        }
 
         res.status(200).json({
             success: true,
@@ -25,12 +23,10 @@ const createResult = async (req, res) => {
 // Get Result List
 const getResultList = async (req, res) => {
     try {
-        const resultExists = await resultService.ResultByName(reqBody.name);
-        if (!resultExists) {
+        const getlist = await resultService.getResultList();
+        if (!getlist) {
             throw new Error("Result not found");
         }
-
-        const getlist = await resultService.getResultList(reqBody);
 
         res.status(200).json({
             success: true,

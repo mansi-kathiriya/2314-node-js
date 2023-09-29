@@ -5,7 +5,7 @@ const createGame = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const gameExists = await gameService.gameByName(reqBody.name);
+        const gameExists = await gameService.gameByName(reqBody);
         if(gameExists){
             throw new Error("please add other game this game is alredy craeted.");
         };
@@ -25,12 +25,12 @@ const createGame = async (req, res) => {
 // Get game List
 const getGameList = async (req, res) => {
     try {
-        const gameExists = await gameService.GameByName(reqBody.name);
+        const gameExists = await gameService.GameByName();
         if (!gameExists) {
             throw new Error("Game not found");
         }
 
-        const getlist = await gameService.getGameList(reqBody);
+        const getlist = await gameService.getGameList();
 
         res.status(200).json({
             success: true,

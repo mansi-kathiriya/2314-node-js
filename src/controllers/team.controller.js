@@ -5,7 +5,7 @@ const createTeam = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const teamExists = await teamService.TeamByName(reqBody.name);
+        const teamExists = await teamService.TeamByName(reqBody);
         if (teamExists) {
             throw new Error("please add other Team this Team is already created.");
         }
@@ -25,12 +25,12 @@ const createTeam = async (req, res) => {
 // Get Team List
 const getTeamList = async (req, res) => {
     try {
-        const teamExists = await teamService.TeamByName(reqBody.name);
+        const teamExists = await teamService.TeamByName();
         if (!teamExists) {
             throw new Error("Team not found");
         }
 
-        const getlist = await teamService.getTeamList(reqBody);
+        const getlist = await teamService.getTeamList();
 
         res.status(200).json({
             success: true,

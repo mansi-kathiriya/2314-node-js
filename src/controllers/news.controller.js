@@ -5,7 +5,7 @@ const createNews = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const newsExists = await newsService.NewsByName(reqBody.name);
+        const newsExists = await newsService.NewsByName(reqBody);
         if (newsExists) {
             throw new Error("please add other News this News is already created.");
         }
@@ -25,12 +25,12 @@ const createNews = async (req, res) => {
 // Get News List
 const getNewsList = async (req, res) => {
     try {
-        const newsExists = await newsService.NewsByName(reqBody.name);
+        const newsExists = await newsService.NewsByName();
         if (!newsExists) {
             throw new Error("News not found");
         }
 
-        const getlist = await newsService.getNewsList(reqBody);
+        const getlist = await newsService.getNewsList();
 
         res.status(200).json({
             success: true,
