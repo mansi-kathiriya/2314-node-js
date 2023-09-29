@@ -14,6 +14,10 @@ const resultSchema = new mongoose.Schema(
             type: String,
             trim: true,
         },
+        game: {
+            type: mongoose.Types.ObjectId,
+            ref: "game",
+        },
         is_active: {
             type: Boolean,
             default: true,

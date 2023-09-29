@@ -1,4 +1,5 @@
 const express = require("express");
+const { upload } = require("../../middlewares/upload")
 const { sportgalleryValidation } = require("../../validations");
 const { sportgalleryController } = require("../../controllers");
 const validate = require("../../middlewares/validate");

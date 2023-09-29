@@ -6,6 +6,7 @@ const createPlayer = async (reqBody) => {
 
 const getPlayerList = async (filter, options) => {
   return Player.find({$or : [{ is_active: true }]})
+  .populate("team")
 };
 
 const getPlayerById = async(playerId) => {

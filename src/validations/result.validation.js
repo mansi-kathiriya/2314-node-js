@@ -6,6 +6,7 @@ const createResult = {
         team_score: Joi.string().required().trim(),
         player_stats: Joi.number().integer(),
         highlights: Joi.string().required().trim(),
+        game: Joi.string().required().trim(),
     })
 };
 

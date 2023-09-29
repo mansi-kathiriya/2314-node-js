@@ -33,7 +33,7 @@ router.put(
 // delete Sportcategory
 router.delete(
   "/delete/:sportcategoryId",
-  sportcategoryController.deleteRecord
+  sportcategoryController.deleteSportcategory
 )
 
 module.exports = router;

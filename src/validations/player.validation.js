@@ -7,6 +7,7 @@ const createPlayer = {
         last_name: Joi.string().required().trim(),
         birthdate: Joi.date(),
         position: Joi.string().required().trim(),
+        team: Joi.string().required().trim(),
     })
 };
 

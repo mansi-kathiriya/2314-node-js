@@ -6,6 +6,7 @@ const createGame = {
         game_name: Joi.string().required().trim(),
         date_time: Joi.string().required().trim(),
         location: Joi.date(),
+        team: Joi.string().required().trim(),
     }),
 };
 

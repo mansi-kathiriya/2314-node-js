@@ -6,6 +6,7 @@ const createResult = async (reqBody) => {
 
 const getResultList = async (filter, options) => {
   return Result.find({$or : [{ is_active: true }]})
+  .populate("game")
 };
 
 const getResultById = async(resultId) => {

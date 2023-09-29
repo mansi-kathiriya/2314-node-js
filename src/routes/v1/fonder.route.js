@@ -15,13 +15,13 @@ router.post(
 // Get fonder list
 router.get(
     "/fonder-list",
-    founderController.getFonderList
+    founderController.getFounderList
 );
 
 // Get fonder details by id
 router.get(
     "/get-details/:fonderId",
-    founderController.getFonderDetails
+    founderController.getFounderDetails
 );
 
 // update fonder
