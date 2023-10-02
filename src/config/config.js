@@ -10,5 +10,5 @@ const envVarsSchema = Joi.object({
     JWT_SECRET_KRY: Joi.string()
         .description("jwt secreat key")
         .default("this is jwt secreat key"),
-        
+    SMTP_HOST: Joi.string().description("server that will send the emails")
 })
