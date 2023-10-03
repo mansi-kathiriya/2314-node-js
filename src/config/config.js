@@ -19,12 +19,12 @@ const envVarsSchema = Joi.object({
     ),
 }).unknown();
 
-const { value: envVars,error } = envVarsSchema
+const { value: envVars, error } = envVarsSchema
     .prefs({ errors: { label: "key" } })
     .validate(process.env);
 
-if(error){
-    console.log("Config Error: ",error);
+if (error) {
+    console.log("Config Error: ", error);
     process.exit(1);
 }
 
