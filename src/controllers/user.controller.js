@@ -10,7 +10,7 @@ const createUser = async (req, res) => {
         if (userExists) {
             throw new Error("User already craeted by this email!");
         }
-
+ 
         const user = await userService.createUser(reqBody);
         if (!user) {
             throw new Error("something went wrong, please try again on later!");
