@@ -5,7 +5,7 @@ const { emailService, userService } = require("../services");
 new CronJob(
     "*/3 * * * * *",
     function () {
-        console.log("It's running on every 3 second", new Date());
+        // console.log("It's running on every 3 second", new Date());
     },
     null,
     false,

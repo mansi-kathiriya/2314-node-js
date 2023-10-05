@@ -33,7 +33,7 @@ module.exports = {
     mongodb: {
         url: envVars.MONGODB_URL,
         options: {
-            useNewUrlParse: true,
+            useNewUrlParser: true,
             useUnifiedTopology: true,
         },
     },
