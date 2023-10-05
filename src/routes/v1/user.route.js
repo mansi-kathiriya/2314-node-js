@@ -39,3 +39,5 @@ router.delete(
     validate(userValidation.getDetails),
     userController.deleteUser
 );
+
+module.exports = router;
