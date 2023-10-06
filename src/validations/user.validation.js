@@ -44,7 +44,7 @@ const sendMail = {
     body: Joi.object({
         email: Joi.string().required().email(),
         subject: Joi.string().required().trim(),
-        text: Joi.string().required().trim(),
+        // text: Joi.string().required().trim(),
     }),
 };
 
