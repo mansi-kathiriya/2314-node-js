@@ -23,7 +23,7 @@ const createCategory = async (req, res) => {
 /** get Category List */
 const getCategoryList = async (req, res) => {
     try {
-        const categoryList = await categoryService.getCategoryList(filter, options);
+        const categoryList = await categoryService.getCategoryList();
 
         res.status(200).json({
             success: true,

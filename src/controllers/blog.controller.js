@@ -29,7 +29,7 @@ const createBlog = async (req, res) => {
 /** get Blog List */
 const getBlogList = async (req, res) => {
     try {
-        const blogList = await blogService.getBlogList(filter, options);
+        const blogList = await blogService.getBlogList();
 
         res.status(200).json({
             success: true,
