@@ -15,28 +15,24 @@ router.post(
 /** Get Category */
 router.get(
     "/category-list",
-    validate(categoryValidation.CategoryList),
     categoryController.getCategoryList
 );
 
 /** Get Category deatils by id */
 router.get(
     "/category-details/:categoryId",
-    validate(categoryValidation.getDetails),
     categoryController.getCategoryDetails
 );
 
 /** Update Category */
 router.put(
     "/update-details/:categoryId",
-    validate(categoryValidation.updateDetails),
     categoryController.updateDetails
 );
 
 /** Delete Category */
 router.delete(
     "/category-delete/:categoryId",
-    validate(categoryValidation.getDetails),
     categoryController.deleteCategory
 );
 
